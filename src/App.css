@@ -1,0 +1,38 @@
+.App {
+  text-align: left;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 50px;
+}
+
+.dropdown-toggle.noCaret:after {
+  display: none;
+}
+
+.dropdown-menu.show {
+  background-color: #5a6268;
+  padding:0px;
+}
+
+.dropdown-item.dropdownStyle {
+  color: #fff;
+  background-color: #5a6268;
+}
+
+.ten {
+  width: 10%;
+}
+
+.imgDimensions {
+  width: 60px;
+  height: 60px;
+}
