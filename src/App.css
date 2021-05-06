@@ -36,3 +36,27 @@
   width: 60px;
   height: 60px;
 }
+
+.playlistDropdown button {
+  background-color: #5a6268;
+  border: none;
+}
+
+.playlistDropdown.show>.btn-secondary.dropdown-toggle {
+  background-color: #5a6268;
+  border: none;
+}
+
+.playlistDropdown.show>.btn-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.playlistDropdown.show>.btn-secondary:focus {
+  background-color: #5a6268;
+  border: none;
+  box-shadow: none;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
