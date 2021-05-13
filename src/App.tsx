@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Songs from './songs/Songs';
+import Tracks from './tracks/Tracks';
 
 function App(props:any) {
   return (
@@ -9,7 +9,7 @@ function App(props:any) {
         <p>
           Hello, {props.name}
         </p>   
-        <Songs/>     
+        <Tracks/>     
       </header>
     </div>
   );

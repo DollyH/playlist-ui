@@ -1,24 +1,24 @@
 import React from 'react';
-import Song from "../song/Song"
+import Track from "../track/Track"
 import Table from "react-bootstrap/Table";
-import SongModel from '../song/SongModel';
+import TrackModel from '../track/TrackModel';
 
-class Songs extends React.Component<{}, { songs: Array<SongModel> }> {
+class Tracks extends React.Component<{}, { tracks: Array<TrackModel> }> {
 
   constructor(props: any) {
     super(props);
     this.state = {
-      songs: []
+      tracks: []
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/song/all")
+    fetch("http://spotifytracks.eastus.azurecontainer.io:8080/getTracks")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            songs: result
+            tracks: result
           });
         },
         // Note: it's important to handle errors here
@@ -35,12 +35,12 @@ class Songs extends React.Component<{}, { songs: Array<SongModel> }> {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th colSpan={3}>Songs</th>
+            <th colSpan={3}>Tracks</th>
           </tr>
         </thead>
         <tbody>
-          {this.state.songs.map(song => (
-            <Song key={song.id} name={song.name} source={song.image} artist={song.artists.join(', ')}/>
+          {this.state.tracks.map(track => (
+            <Track key={track.trackId} name={track.trackName} genre={track.genre} artist={track.artistName}/>
           ))}         
         </tbody>
       </Table> 
@@ -48,4 +48,4 @@ class Songs extends React.Component<{}, { songs: Array<SongModel> }> {
   }
 }
 
-export default Songs;
+export default Tracks;

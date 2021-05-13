@@ -1,8 +1,9 @@
 import React from 'react';
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import PlaylistModel from './PlaylistModel';
 
-class Playlist extends React.Component<{}, { playlists: Array<string> }> {
+class Playlist extends React.Component<{}, { playlists: Array<PlaylistModel> }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -11,7 +12,7 @@ class Playlist extends React.Component<{}, { playlists: Array<string> }> {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/playlist/all")
+    fetch("http://spotify-playlists.eastus.azurecontainer.io:8080/playlist/all")
       .then(res => res.json())
       .then(
         (result) => {
@@ -23,7 +24,7 @@ class Playlist extends React.Component<{}, { playlists: Array<string> }> {
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         (error) => {
-          console.log("Error occurred while fetching songs");
+          console.log("Error occurred while fetching playlists");
         }
       )
   }
@@ -32,8 +33,8 @@ class Playlist extends React.Component<{}, { playlists: Array<string> }> {
     return (   
       <DropdownButton key="left" id="dropdown-button-drop-left" drop="left" variant="secondary" title="Add to Playlist" className="playlistDropdown">
         <Dropdown.Item eventKey="1" className="dropdownStyle">New Playlist</Dropdown.Item>
-        {this.state.playlists.map((name, index) => (
-          <Dropdown.Item key={index} className="dropdownStyle">{name}</Dropdown.Item>
+        {this.state.playlists.map(playlist => (
+          <Dropdown.Item key={playlist.id} className="dropdownStyle">{playlist.name}</Dropdown.Item>
         ))} 
       </DropdownButton>
     );

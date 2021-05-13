@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import Playlist from '../playlist/Playlist';
 
-class SongMenu extends React.Component {
+class TrackMenu extends React.Component {
   render() {
     return (
       <Dropdown>
@@ -18,4 +18,4 @@ class SongMenu extends React.Component {
   }
 }
 
-export default SongMenu;
+export default TrackMenu;
